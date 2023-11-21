@@ -1,0 +1,65 @@
+In order to run this project, you will need to follow these instructions.
+
+*** DEPENDENCIES - DON'T WORRY IT'S NOT TOO BAD!! ***
+
+My implementation uses the NodeJS "Sequelize" framework as an ORM which allows it to interface with
+different types of databases, including MySQL, Postgres, and more. However, I have only tested it
+with Postgres.
+
+I have included a backup of my library database in the folder "database_backup" - you will need to
+restore this file, which is just a text file containing SQL statements, to your own db.
+
+You can install Postgres on your machine here: https://www.postgresql.org
+
+You can restore my database backup to a database on your own machine by running the following postgres
+command in the terminal:
+
+pg_restore -U postgres -d mydb database_backup/library_db_export.pgsql
+
+where "mydb" is the name of your database. Note that I'm assuming you are in the root of this project
+when running this command.
+
+You will need to install NodeJS on your host machine, which you can find here (https://nodejs.org/en)
+and then make sure your working directory in the terminal is the root of this project.
+
+You will then need to run npm update which will use the package.json file in this project to install
+the necessary dependencies this project requires (express, sequelize).
+
+**** NOTE - THIS IS VERY IMPORTANT! ****
+
+You will NEED to change the connection string on line 10 of server.js:
+
+"postgres://cianmarbo@localhost:5432/library"
+
+Here you need to replace "cianmarbo" with whatever account you are logged into on your host machine.
+You will also need to replace "library" with whatever your db is called if it is not called "library".
+I admit this is a gap in functionality....
+
+If you do not do the above, the project will *not* work
+
+*****************************************
+
+**** TO RUN THE PROJECT ****
+
+In the project root directory run
+
+node server.js
+
+This will start the server
+
+Once the server has started and there are no errors you can visit the site by entering
+
+127.0.0.1:3000
+
+Once the page has loaded you will be presented with a login screen
+
+You can login with the following credentials
+
+username - cian
+password - password123
+
+Once logged in you should be to see all checked in books.
+
+
+
+
